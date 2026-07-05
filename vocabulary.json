@@ -1,0 +1,31 @@
+[
+
+{ "word": "Müll", "english": "rubbish", "type": "noun", "article": "der", "plural": "no plural", "topics": [" Natur und Umwelt"] },
+{ "word": "Arbeitslosigkeit", "english": "unemployment", "type": "noun", "article": "die", "plural": "no plural", "topics": [" Die Welt der Arbeit", " Die Herausforderungen von Immigration und Integration", " Die Gesellschaft in der DDR vor der Wiedervereinigung", " Deutschland seit der Wiedervereinigung"] },
+{ "word": "Migration", "english": "migration", "type": "noun", "article": "die", "plural": "Migrationen", "topics": [" Die positive Auswirkung von Immigration", " Die Herausforderungen von Immigration und Integration", " Die staatliche und soziale Reaktion zur Immigration", " Deutschland seit der Wiedervereinigung"] },
+{ "word": "Bewohner", "english": "inhabitant", "type": "noun", "article": "der", "plural": "Bewohner", "topics": [" Natur und Umwelt"] },
+{ "word": "Bußgeld", "english": "fine, penalty", "type": "noun", "article": "das", "plural": "Bußgelder", "topics": [" Natur und Umwelt"] },
+{ "word": "Gemeinde", "english": "community", "type": "noun", "article": "die", "plural": "Gemeinden", "topics": [" Natur und Umwelt", " Die Herausforderungen von Immigration und Integration"] },
+{ "word": "Lebensstil", "english": "lifestyle", "type": "noun", "article": "der", "plural": "Lebensstile", "topics": [" Natur und Umwelt"] },
+{ "word": "Ökodorf", "english": "eco-village", "type": "noun", "article": "das", "plural": "Ökodörfer", "topics": [" Natur und Umwelt"] },
+{ "word": "Selbstversorger", "english": "person who is self-sufficient", "type": "noun", "article": "der", "plural": "Selbstversorger", "topics": [" Natur und Umwelt"] },
+{ "word": "Abfallentsorgung", "english": "waste disposal", "type": "noun", "article": "die", "plural": "no plural", "topics": [" Natur und Umwelt"] },
+{ "word": "Abwasser", "english": "sewage", "type": "noun", "article": "das", "plural": "no plural", "topics": [" Natur und Umwelt"] },
+{ "word": "biologisch abbaubar", "english": "biodegradable", "type": "adjective", "topics": [" Natur und Umwelt"] },
+{ "word": "Verpackung", "english": "packaging", "type": "noun", "article": "die", "plural": "Verpackungen", "topics": [" Natur und Umwelt"] },
+{ "word": "Einwegverpackung", "english": "disposable packaging", "type": "noun", "article": "die", "plural": "Einwegverpackungen", "topics": [" Natur und Umwelt"] },
+{ "word": "Hausmüll", "english": "household waste", "type": "noun", "article": "der", "plural": "no plural", "topics": [" Natur und Umwelt"] },
+{ "word": "Müllabfuhr", "english": "refuse collection", "type": "noun", "article": "die", "plural": "no plural", "topics": [" Natur und Umwelt"] },
+{ "word": "Mülldeponie", "english": "rubbish dump", "type": "noun", "article": "die", "plural": "Mülldeponien", "topics": [" Natur und Umwelt"] },
+{ "word": "Pfandflasche", "english": "returnable bottle", "type": "noun", "article": "die", "plural": "Pfandflaschen", "topics": [" Natur und Umwelt"] },
+{ "word": "Plastiktüte", "english": "plastic bag", "type": "noun", "article": "die", "plural": "Plastiktüten", "topics": [" Natur und Umwelt"] },
+{ "word": "Wegwerfgesellschaft", "english": "throw-away society", "type": "noun", "article": "die", "plural": "no plural", "topics": [" Natur und Umwelt"] },
+{ "word": "wiederverwertbar", "english": "recyclable", "type": "adjective", "topics": [" Natur und Umwelt"] },
+{ "word": "Atomausstieg", "english": "abandoning of nuclear energy", "type": "noun", "article": "der", "plural": "no plural", "topics": [" Natur und Umwelt"] },
+{ "word": "Atomkraft", "english": "atomic power", "type": "noun", "article": "die", "plural": "no plural", "topics": [" Natur und Umwelt"] },
+{ "word": "Atomkraftwerk", "english": "nuclear power station", "type": "noun", "article": "das", "plural": "Atomkraftwerke", "topics": [" Natur und Umwelt"] },
+{ "word": "bezahlbar", "english": "affordable", "type": "adjective", "topics": [" Natur und Umwelt", " Die Gesellschaft in der DDR vor der Wiedervereinigung"] },
+{ "word": "Biomasse", "english": "biomass", "type": "noun", "article": "die", "plural": "no plural", "topics": [" Natur und Umwelt"] },
+{ "word": "Dachkollektor", "english": "solar panel on the roof", "type": "noun", "article": "der", "plural": "Dachkollektoren", "topics": [" Natur und Umwelt"] }
+
+]
