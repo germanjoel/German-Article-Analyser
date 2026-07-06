@@ -76,8 +76,34 @@ function analyse() {
 
     // 1. Gather all vocabulary matches with their positions in the text
     for (let item of vocabulary) {
-        let regex = new RegExp(`\\b${item.word}\\b`, "gi");
-        let matches = [...article.matchAll(regex)];
+
+    let patterns = [];
+
+    // Base word
+    patterns.push(item.word);
+
+    // Plural (for nouns)
+    if (item.type === "noun" &&
+        item.plural &&
+        item.plural !== "no plural") {
+
+        patterns.push(item.plural);
+    }
+
+    // Adjective endings
+    if (item.type === "adjective") {
+        patterns = [
+            `${item.word}(e|en|er|em|es|ere|eren|erer|erem|eres)?`
+        ];
+    }
+
+    if (item.type === "noun") {
+    regex = new RegExp(`\\b(${patterns.join("|")})\\b`, "g");
+} else {
+    regex = new RegExp(`\\b(${patterns.join("|")})\\b`, "gi");
+}
+
+    let matches = [...article.matchAll(regex)];
 
         if (matches.length > 0) {
             // Store the item details alongside the first index where it appears
