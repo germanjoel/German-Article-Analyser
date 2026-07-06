@@ -55,6 +55,13 @@ document
                 "<p><b>English:</b> " + item.english + "</p>";
             document.getElementById("wordInfo").innerHTML +=
                 "<p><b>Topics:</b> " + item.topics + "</p>";
+        } else if (item.type === "adverb") {
+            document.getElementById("wordInfo").innerHTML +=
+                "<p><b>Word:</b> " + item.word + "</p>";
+            document.getElementById("wordInfo").innerHTML +=
+                "<p><b>English:</b> " + item.english + "</p>";
+            document.getElementById("wordInfo").innerHTML +=
+                "<p><b>Topics:</b> " + item.topics + "</p>";
         }
 
         break;
@@ -69,7 +76,7 @@ function analyse() {
 
     // 1. Gather all vocabulary matches with their positions in the text
     for (let item of vocabulary) {
-        let regex = new RegExp(item.word, "gi");
+        let regex = new RegExp(`\\b${item.word}\\b`, "gi");
         let matches = [...article.matchAll(regex)];
 
         if (matches.length > 0) {
