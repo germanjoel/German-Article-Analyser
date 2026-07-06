@@ -1174,6 +1174,7 @@
 { "word": "ansonsten", "english": "otherwise", "type": "adverb", "topics": [ "Allgemein" ] },
 { "word": "Anschlussmöglichkeiten", "english": "transport links", "type": "noun", "article": "die", "plural": "Anschlussmöglichkeiten", "topics": [ "Allgemein" ] },
 { "word": "Anziehungspunkt", "english": "centre of attraction", "type": "noun", "article": "der", "plural": "Anziehungspunkte", "topics": [ "Allgemein" ] },
-{ "word": "Einrichtung", "english": "furniture, institution", "type": "noun", "article": "die", "plural": "Einrichtungen", "topics": [ "Allgemein" ] }
+{ "word": "Einrichtung", "english": "furniture, institution", "type": "noun", "article": "die", "plural": "Einrichtungen", "topics": [ "Allgemein" ] },
+{ "word": "Erfordernis", "english": "requirement, requisite", "type": "noun", "article": "die", "plural": "Erfordernisse", "topics": [ "Allgemein" ] }
 
 ]
