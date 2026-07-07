@@ -21,11 +21,30 @@
     </div>
     
     <div class="sidebar">
-        <h2>Vocabulary Found</h2>
+        <h2>Vocabulary Found (frequency in brackets)</h2>
+        <input
+        id="searchBox"
+        placeholder="Search vocabulary..."
+        type="text">
         <div id="results" class="card">No vocabulary detected yet.</div>
+
         <h2>Word Information</h2>
         <div id="wordInfo" class="card">Click a highlighted word to see its English translation and useful info.</div>
-    </div>
+
+        <h2>Study List</h2>
+        <div id="studyList" class="card">No saved words.</div>
+
+    <div class="studyButtons">
+
+    <button id="copyList">
+        Copy List
+    </button>
+
+    <button id="clearList">
+        Clear List
+    </button>
+
+</div>
 </div>
 
 <script src="script.js"></script>

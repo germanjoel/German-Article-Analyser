@@ -147,3 +147,73 @@ h2 {
     background-color: #bdf5ce; /* Very subtle faded green tint */
     color: #166534;
 }
+
+.selected{
+    outline:3px solid orange;
+}
+
+#searchBox{
+    width:100%;
+    padding:8px;
+    margin-bottom:12px;
+    box-sizing:border-box;
+    border:1px solid var(--border-color);
+    border-radius:6px;
+}
+
+.studyWord{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:8px;
+
+    margin-bottom:8px;
+
+    background:#f8fafc;
+
+    border-radius:6px;
+
+}
+
+.studyWordText{
+
+    cursor:pointer;
+
+    flex:1;
+
+}
+
+.removeButton{
+
+    background:#ef4444;
+
+    padding:4px 10px;
+
+    margin:0;
+
+}
+
+.removeButton:hover{
+
+    background:#dc2626;
+
+}
+
+.studyButtons{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:10px;
+
+}
+
+.translation{
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}

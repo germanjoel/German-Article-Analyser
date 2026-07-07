@@ -2,6 +2,9 @@ let seenWords = new Set();
 
 let vocabulary = [];
 
+let studyList =
+JSON.parse(localStorage.getItem("studyList")) || [];
+
 async function loadVocabulary(){
 
     const response = await fetch("vocabulary.json");
@@ -9,6 +12,8 @@ async function loadVocabulary(){
     vocabulary = await response.json();
 
     console.log("VOCAB LOADED:", vocabulary);
+
+    updateStudyList();
 
     analyse();
 }
@@ -18,6 +23,37 @@ window.addEventListener("DOMContentLoaded", loadVocabulary);
 document
 .getElementById("analyseButton")
 .addEventListener("click", analyse);
+
+function selectWord(word){
+
+    // Remove old highlights
+    document.querySelectorAll(".selected").forEach(function(el){
+        el.classList.remove("selected");
+    });
+
+    // Highlight every occurrence
+    document.querySelectorAll(`[data-word="${word}"]`).forEach(function(el){
+        el.classList.add("selected");
+    });
+
+    // Show the information panel
+    showWord(word);
+}
+
+function scrollToWord(word){
+
+    let first = document.getElementById(`${word}-1`);
+
+    if(first){
+        first.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+    }
+
+    showWord(word);
+
+}
 
   function showWord(word){
     document.getElementById("wordInfo").innerHTML = "";
@@ -64,8 +100,88 @@ document
                 "<p><b>Topics:</b> " + item.topics + "</p>";
         }
 
+        document.getElementById("wordInfo").innerHTML +=
+            `<button onclick="saveWord('${item.word}')">Add to Study List</button>`;
+
         break;
     }
+}
+
+function saveWord(word){
+
+    // Find the vocabulary item
+    let item = vocabulary.find(v => v.word === word);
+
+    if(!item) return;
+
+    // Don't save duplicates
+    if(!studyList.some(w => w.word === word)){
+
+        studyList.push({
+            word: item.word,
+            english: item.english
+        });
+
+        localStorage.setItem(
+            "studyList",
+            JSON.stringify(studyList)
+        );
+
+        updateStudyList();
+    }
+}
+
+function removeWord(word){
+
+    studyList =
+    studyList.filter(item => item.word !== word);
+
+    localStorage.setItem(
+        "studyList",
+        JSON.stringify(studyList)
+    );
+
+    updateStudyList();
+
+}
+
+function updateStudyList(){
+
+    let html = "";
+
+    studyList.forEach(function(item){
+
+        html += `
+        <div class="studyWord">
+
+            <span
+                class="studyWordText"
+                onclick="showWord('${item.word}')">
+
+                <strong>${item.word}</strong><br>
+                <span class="translation">${item.english}</span>
+
+            </span>
+
+            <button
+                class="removeButton"
+                onclick="removeWord('${item.word}')">
+
+                ✕
+
+            </button>
+
+        </div>
+        `;
+
+    });
+
+    if(html === ""){
+        html = "No saved words.";
+    }
+
+    document.getElementById("studyList").innerHTML = html;
+
 }
 
 function analyse() {
@@ -106,10 +222,12 @@ function analyse() {
     let matches = [...article.matchAll(regex)];
 
         if (matches.length > 0) {
+        
             // Store the item details alongside the first index where it appears
             matchesFound.push({
                 item: item,
-                firstIndex: matches[0].index
+                firstIndex: matches[0].index,
+                count: matches.length
             });
 
             // 2. Run your replacement logic for highlighting
@@ -117,7 +235,11 @@ function analyse() {
             highlighted = highlighted.replace(regex, function(match) {
                 count++;
                 let highlightClass = count === 1 ? "first" : "repeat";
-                return `<span class="word ${item.type} ${highlightClass}" onclick="showWord('${item.word}')">${match}</span>`;
+                return `<span
+                class="word ${item.type} ${highlightClass}"
+                data-word="${item.word}"
+                id="${item.word}-${count}"
+                onclick="selectWord('${item.word}')">${match}</span>`;
             });
         }
     }
@@ -129,8 +251,8 @@ function analyse() {
     let foundHTML = "";
     for (let match of matchesFound) {
         let word = match.item.word;
-        foundHTML += `<div class="foundWord" onclick="showWord('${word}')">
-            ${word} — ${match.item.english}
+        foundHTML += `<div class="foundWord" onclick="scrollToWord('${word}')">
+            ${word} (${match.count}) - ${match.item.english}
         </div>`;
     }
 
@@ -138,3 +260,42 @@ function analyse() {
     document.getElementById("results").innerHTML = foundHTML;
     document.getElementById("highlighted").innerHTML = highlighted;
 }
+
+document.getElementById("searchBox").addEventListener("input", function(){
+
+    let search = this.value.toLowerCase();
+
+    document.querySelectorAll(".foundWord").forEach(function(word){
+
+        word.style.display =
+            word.innerText.toLowerCase().includes(search)
+            ? ""
+            : "none";
+
+    });
+
+});
+
+document.getElementById("clearList")
+.addEventListener("click",function(){
+
+    studyList=[];
+
+    localStorage.removeItem("studyList");
+
+    updateStudyList();
+
+});
+
+document.getElementById("copyList")
+.addEventListener("click",function(){
+
+    navigator.clipboard.writeText(
+        studyList
+.map(item => `${item.word} - ${item.english}`)
+.join("\n")
+    );
+
+    alert("Study list copied.");
+
+});
