@@ -182,6 +182,8 @@ function updateStudyList(){
 
     document.getElementById("studyList").innerHTML = html;
 
+    document.getElementById("studyListHeading").textContent =
+    `Study List (${studyList.length})`;
 }
 
 function analyse() {
